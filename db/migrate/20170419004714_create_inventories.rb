@@ -5,7 +5,7 @@ class CreateInventories < ActiveRecord::Migration[5.0]
       t.integer :size
       t.string :description
       t.integer :category_id, index: true
-
+      add_reference :inventories, :work_id, foreign_key: true
       t.timestamps
     end
     add_index :inventories, :serial_num, unique: true
